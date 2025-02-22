@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import zipfile
+import os
 
 
 model_zip_path = "rf_model.zip"
