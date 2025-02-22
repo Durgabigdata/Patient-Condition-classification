@@ -2,11 +2,11 @@ import streamlit as st
 import pickle
 
 
-with open("C:\\Users\\Admin\\Downloads\\vectorizer.pkl", 'rb') as vec_file:
-    vectorizer = pickle.load(vec_file)
+with open("vectorizer.pkl", 'rb') as vec_f:
+    vectorizer = pickle.load(vec_f)
 
-with open("C:\\Users\\Admin\\Downloads\\rf_model.pkl", 'rb') as model_file:
-    rf_model = pickle.load(model_file)
+with open("rf_model.pkl", 'rb') as model_f:
+    model = pickle.load(model_f)
 
 
 # Streamlit setup
