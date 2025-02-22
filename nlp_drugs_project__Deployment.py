@@ -42,7 +42,7 @@ if st.button("Predict"):
         transformed_review = vectorizer.transform([review])
         
         
-        prediction = rf_model.predict(transformed_review)
+        prediction = model.predict(transformed_review)
         
        
         st.write(f"The predicted drug category is: **{prediction[0]}**")
