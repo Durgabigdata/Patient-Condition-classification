@@ -1,11 +1,29 @@
 import streamlit as st
 import pickle
+import zipfile
 
 
-with open("vectorizer.pkl", 'rb') as vec_f:
+model_zip_path = "rf_model.zip"
+model_path = "rf_model.pkl"
+vectorizer_path = "vectorizer.pkl"
+
+# Extract model if it's not already extracted
+if not os.path.exists(model_path):
+    with zipfile.ZipFile(model_zip_path, 'r') as zip_ref:
+        zip_ref.extractall()  # Extracts rf_model.pkl
+
+# Check if extracted files exist
+if not os.path.exists(model_path):
+    raise FileNotFoundError(f"Model file {model_path} not found after extraction!")
+
+if not os.path.exists(vectorizer_path):
+    raise FileNotFoundError(f"Vectorizer file {vectorizer_path} not found!")
+
+# Load model and vectorizer
+with open(vectorizer_path, 'rb') as vec_f:
     vectorizer = pickle.load(vec_f)
 
-with open("rf_model.pkl", 'rb') as model_f:
+with open(model_path, 'rb') as model_f:
     model = pickle.load(model_f)
 
 
